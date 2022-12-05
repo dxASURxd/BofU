@@ -1,0 +1,101 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    font-family: hind;
+}
+
+body {
+    font-size: 1.6rem;
+    &.fijar-body {
+        overflow: hidden;
+    }
+}
+
+@font-face {
+    font-family: hind;
+    src: url(/src/utilities/font-family/Hind-Regular.ttf);
+  }
+
+p {
+    font-size: 16px;
+    color: $negro;
+}
+.justificado{
+    text-align: justify;
+}
+.contenedor {
+    max-width: 120rem;
+    width: 95%;
+    margin: 0 auto;
+}
+.icon{
+    font-size: 2.5rem;
+    & :hover{
+        cursor: pointer;
+    }
+}
+
+.border{
+    border-radius: $border_xl;
+    img{
+    border-radius: $border_md;
+    }
+}
+.boton{
+    border: solid 1px $grisoscuro;
+      border-radius: $border_md;
+      padding: 1.5rem;
+      width: 50%;
+      margin: auto;
+      -webkit-transition: background-color .25s ease-out;
+      -moz-transition: background-color .25s ease-out;
+      -o-transition: background-color .25s ease-out;
+       transition: background-color .25s ease-out;
+      &:hover{
+         background-color: $rosaH;
+         color: $negro;
+         border: none;
+      }
+}
+.boton2{
+      border-radius: $border_md;
+      padding: 1.5rem;
+      margin: auto;
+      -webkit-transition: background-color .25s ease-out;
+      -moz-transition: background-color .25s ease-out;
+      -o-transition: background-color .25s ease-out;
+       transition: background-color .25s ease-out;
+      &:hover{
+         background-color: $rosaH;
+         color: $negro;
+         border: none;
+      }
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: $negro;
+}
+img {
+    max-width: 100%;
+}
+h1, h2, h3 {
+    margin: 0;
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 2.3rem;
+}
+.h2_section{
+    margin-top: 5rem;
+}
+h3 {
+    font-size: 1.5rem;
+}

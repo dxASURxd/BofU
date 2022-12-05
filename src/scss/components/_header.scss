@@ -1,0 +1,152 @@
+.header {
+    background-color: $rosaoscuro;
+    padding: 1rem 0 0;
+    box-shadow: $sombrarosa;
+    margin: 0 0 5rem 0;
+    h1{
+       color: $blanco;
+        margin: auto;
+        font-size: 100%;
+    }
+    @include tablet{
+        h1{
+            font-size: 35px;
+        }
+    }
+    @include desktop{
+        h1{
+            font-size: 35px;
+        }
+    }
+    .contenido-header {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.svg{
+    height: 25px;
+    @include tablet{
+        height: 35px;   
+    }
+}
+.navegacion-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    font-size: 25px;
+    a{
+        color: $grisclaro;
+    }
+    .nav_redirect{
+        color: $blanco;
+        display:none;
+    }
+     @include tablet{
+        .nav_redirect{
+            gap: 2.5rem;
+            display: inline;
+        }
+        font-size: 20px;
+        font-weight: $bold;
+    }
+}
+
+select{
+    width: auto
+} 
+
+.form-body {
+    margin: auto;
+    width: 400px;
+    min-width: 300px;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.form-body img {
+    width: 150px;
+    display: block;
+    margin: 20px auto;
+}
+
+.text {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    margin-bottom: 25px;
+}
+
+.form-body input, select {
+    display: table;
+    margin: auto;
+    height: 40px;
+    width: 75%;
+    padding-left: 10px;
+    border: solid 1px $rosaH;
+    border-radius: 2px;
+    background-color: transparent;
+    font-size: 1rem;
+    outline:none;
+    select{
+        height: 50px;
+        margin-bottom: 5rem;
+    }
+}
+
+.form-body input[type="password"] {
+    margin-top: 20px;
+}
+
+::placeholder {
+    font-size: 1rem;
+    color: black(255, 255, 255, .596);
+}
+
+.form-body input:hover {
+    transition: .5s;
+    border:none;
+    color: #000000;
+}
+
+.form-body button {
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    height: 40px;
+    width: 78%;
+    background: transparent;
+    color: #000000;
+    border-radius: 2px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #000000;
+    transition:  all .5s ease;
+
+}
+
+.form-body button:hover {
+    border: 2px solid #000000;
+}
+
+.modalDialog {
+    margin: auto;
+    position:fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.8);
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:10;
+    pointer-events: auto;
+}

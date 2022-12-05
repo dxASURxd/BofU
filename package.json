@@ -1,0 +1,29 @@
+{
+  "name": "pczou",
+  "version": "1.0.0",
+  "description": "Proyecto integrador",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:build/css",
+    "dev": "gulp dev"
+  },
+  "keywords": [
+    "SASS",
+    "Gulp",
+    "GitHub",
+    "PHP",
+    "HTML5"
+  ],
+  "author": "dxASURxd",
+  "license": "ISC",
+  "dependencies": {
+    "dart-sass": "^1.25.0",
+    "node-sass": "^8.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.56.1"
+  }
+}

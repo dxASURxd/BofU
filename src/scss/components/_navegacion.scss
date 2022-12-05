@@ -1,0 +1,83 @@
+
+.search_bar h1{
+    font-size: 2.5rem;
+    color: #494B4D;
+    text-align: center;
+}
+
+.search_bar{
+    display: row;
+    align-items: center;
+    margin-bottom: 5%;
+    @include tablet{
+        display: grid;
+        grid-template-columns: repeat(2, 70% auto);
+    }
+}
+.row {
+    display: flex;
+    background: #fff;
+    border-radius: 100px;
+    &:hover{
+        border-radius: $border_mm;
+    }
+}
+
+.row input {
+    background: transparent;
+    color: $grisnegro;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    padding: 0;
+    width: 100%;
+    outline: none;
+    transition: all 0.2s;
+    @include tablet{
+        width: 0;
+    }
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    margin: 7px;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.icon i {
+    position: absolute;
+    color: #fff;
+}
+
+.icon .fa-xmark {
+    opacity: 0;
+}
+
+.container:hover input,
+input:focus,
+input:not(:placeholder-shown) {
+    padding: 1rem;
+    padding-left: 1.5rem;
+    @include tablet{
+        width: 258px;
+    }
+}
+
+.container:hover .fa-xmark,
+input:focus~.icon .fa-xmark,
+input:not(:placeholder-shown)~.icon .fa-xmark {
+    opacity: 1;
+}
+
+.container:hover .fa-magnifying-glass,
+input:focus~.icon .fa-magnifying-glass,
+input:not(:placeholder-shown)~.icon .fa-magnifying-glass {
+    opacity: 0;
+}
+
+

@@ -1,0 +1,76 @@
+.nav_perfil{
+    width: 100%;
+    .tabs{
+        list-style: none;
+        display: flex;
+        align-content: space-between;
+        gap: .2rem;
+        font-size: 90%;
+        @include tablet{
+            font-size: 100%;
+            margin: auto 0 2.5rem 30%;
+            gap: 5rem;
+    
+        }
+    }
+}
+
+.contenedor_perfil{
+    @include tablet{
+        display: grid;
+        gap: 2.5%;
+        grid-template-columns: repeat(2, 25% 75%);
+    }
+    .barraL{
+        .user_foto_nombres{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .perfil_nombre_usuario{
+                align-items: center;
+                margin-left: 2.5rem;
+            }
+        }
+        .perfil_informacion_usuario{
+            text-align: justify;
+            margin-bottom: 5%;
+        }
+        .perfil_foto_usuario{
+            img{
+                border-radius: 50%;
+                @include tablet{
+                    margin-top: -40%;
+                }
+            }
+        }
+        .perfil_editar_info{
+            text-align: center;
+            padding: 1rem;
+            margin-top: 5%;
+            &:hover{
+                background-color: $rosaL;
+                border-radius: $border_mm;
+            }
+        }
+        .donativos_contador{
+            text-align: center;
+            gap: 2rem;
+            a{
+                margin: 5%;
+                &:hover{
+                    background-color: $rosaL;
+                    border-radius: $border_mm;
+                }
+            }
+        }
+    }
+    .barraR{
+        .secciones{
+            display: grid;
+            text-align: justify;
+            @include tablet{
+                grid-template-columns: 1;
+            }
+        }
+    }
+}
