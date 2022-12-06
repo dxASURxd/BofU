@@ -148,7 +148,7 @@
                     <input name="fecha_fin" type="date" placeholder="Fecha de finalización"><br>
                     <input name="imagen" type="file" id="imagen" placeholder="Imagen" accept="image/jpeg, image/png"><br>
                     <select name="typablod">
-                        <option hidden value="value1">Tipo de sangre</option>
+                        <option hidden>Tipo de sangre</option>
                         <option value="A+">A+</option>
                         <option value="O+">O+</option>
                         <option value="B+">B+</option>
