@@ -1,3 +1,3 @@
-<script src="js/perfil_informacion.js"></script>
+<script src="./src//js/perfil_informacion.js"></script>
 </body>
 </html>

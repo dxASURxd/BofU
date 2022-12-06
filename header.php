@@ -1,3 +1,92 @@
+<?php
+    // BD
+    require './includes/config/db.php';
+    $db = conectarDB();
+
+    //validador en caso de errores
+    $errores = [];
+    
+    $titulo_publicacion = ' ';
+    $descripcion = ' ';
+    $num_donantes = ' ';
+    $fecha_fin = ' ';
+    $typablod = ' ';
+    
+    if( $_SERVER['REQUEST_METHOD'] === 'POST'){
+
+        $titulo_publicacion = mysqli_real_escape_string( $db, $_POST['titulo_publicacion'] );
+        $descripcion = mysqli_real_escape_string( $db, $_POST['descripcion']);
+        $num_donantes = mysqli_real_escape_string( $db, $_POST['num_donantes']);
+        $fecha_fin = mysqli_real_escape_string( $db, $_POST['fecha_fin']);
+        $typablod = mysqli_real_escape_string( $db, $_POST['typablod']);
+
+        // Asignar files hacia una variable
+        $imagen = $_FILES['imagen'];
+
+        if(!$titulo_publicacion) {
+            $errores[] = "El nombre es obligatorio!";
+        }
+        if(!$descripcion) {
+            $errores[] = "El apellido paterno es obligatorio!";
+        }
+        if(!$num_donantes) {
+            $errores[] = "El apellido materno es obligatorio!";
+        }
+        if(!$fecha_fin) {
+            $errores[] = "La fecha de nacimiento es obligatoria!";
+        }
+        if(!$imagen['name'] || $imagen['error'] ) {
+            $errores[] = 'La Imagen es Obligatoria';
+        }
+
+        if(!$typablod) {
+            $errores[] = "El typablod es obligatorio!";
+        }
+
+        // Validar por tamaño 4mb máximo)
+        $medida = 5000 * 5000;
+        //verificador del tamaño
+        if($imagen['size'] > $medida ) {
+            $errores[] = 'La Imagen es muy pesada';
+        }
+
+        //revisar que no haya errores ($error[] vacio)
+        if(empty($errores)){
+
+            /** SUBIDA DE ARCHIVOS */
+            // Crear carpeta para imagenes
+            $carpetaImagenes = './src/img/post/';
+
+            if(!is_dir($carpetaImagenes)) {
+                mkdir($carpetaImagenes);
+            }
+
+            // Generar un nombre único
+            $nombreImagen = md5( uniqid( rand(), true ) ) . ".jpg";
+
+            // Subir la imagen
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen );
+
+            //insertar a la BD
+            $query = " INSERT INTO publicaciones (titulo_publicacion, descripcion, num_donantes, fecha_fin, imagen, typablod) VALUES ( '$titulo_publicacion', '$descripcion', '$num_donantes', '$fecha_fin', '$nombreImagen', '$typablod')";
+
+            // pa pruebaszzz
+            // echo $query; 
+            // exit;
+        
+            $resultado = mysqli_query($db, $query);
+            if($resultado) {
+                // Redireccionar al usuario.
+                header('Location: /index.php?resultapost=1');
+            }
+        } else{
+            $errores[] = "Todos los campos son obligatorios";
+        }
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -47,15 +136,18 @@
             </div> -->
         </div>
     </header>
+    <!-- crear publicaciones -->
     <center>
         <div id="openModal" class="modalDialog center_form">
             <div class="form-body border">
                 <img src="https://i.pinimg.com/736x/7c/85/c8/7c85c827af06b19b40ae3a84e3df476d.jpg" alt="user-login">
-                <form class="login-form" action="" method="">
-                    <input type="text" placeholder="Nombre de usuario"><br>
-                    <input type="text" placeholder="Título"><br>
-                    <input type="number" placeholder="Donadores"><br>
-                    <select name="select">
+                <form class="login-form" action="./header.php" method="POST" enctype="multipart/form-data">  
+                    <input name="titulo_publicacion" type="text" placeholder="Nombre de usuario"><br>
+                    <input name="descripcion" type="text" placeholder="Descripción"><br>
+                    <input name="num_donantes" type="number" placeholder="Donadores"><br>
+                    <input name="fecha_fin" type="date" placeholder="Fecha de finalización"><br>
+                    <input name="imagen" type="file" id="imagen" placeholder="Imagen" accept="image/jpeg, image/png"><br>
+                    <select name="typablod">
                         <option hidden value="value1">Tipo de sangre</option>
                         <option value="A+">A+</option>
                         <option value="O+">O+</option>
@@ -66,15 +158,15 @@
                         <option value="B-">B-</option>
                         <option value="AB-">AB-</option>
                     </select><br>
-                    <input type="text" placeholder="Descripción"><br>
-                    <div class="tarjeta__botones">
-                        <a href="./agregar.php">Publicar</a>
-                    </div>
+                    
+                    <input type="submit" value="Publicar" class="boton">
+                    
                 </form>
             </div>
         </div>
     </center>
     
+    <!-- Modal, formulario para contribuir en una donacion o campaña -->
     <center>
         <div id="openModalContribuir" class="modalDialog center_form">
             <div class="form-body border">
@@ -98,6 +190,8 @@
             </div>
         </div>
     </center>
+
+    <!-- Modal, mostrar información de la tarjeta de la perosna que solicita una donacion -->
 
     <center>
         <div id="openModalSeeMore" class="modalDialog center_form">

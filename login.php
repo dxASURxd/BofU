@@ -40,10 +40,7 @@
                     session_start();
 
                     //Llenar arreglo de sesión
-                    $_SESSION['usuario'] = $usuario['nombres'];
-                    // $_SESSION['login'] = true;
-                    //ejemplo para el rol
-                    // $_SESSION['rol'] = $usuario['1 o 2'];
+                    $_SESSION['usuario'] = $usuario['nombres'];                    
 
                     header('Location: /index.php');
 

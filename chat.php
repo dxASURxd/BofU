@@ -1,51 +1,11 @@
-<!DOCTYPE html> 
-<html> 
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-        <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
-        <link rel="stylesheet" href="build/css/app.css"> 
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v6.2.1/js/all.js"></script>
-        <script defer src="https://use.fontawesome.com/releases/v6.2.1/js/fontawesome.js"> </script>
-        <title>PCZOU</title>
-    </head> 
-     <header class="header">
-        <div class="contenedor contenido-header">
-            <a href="/">
-                <h1>Beats of U <img class="svg" src="/src/img/logo.svg"/></h1>
-            </a>
-            <nav class="navegacion-principal">
-                <a href="navegacion.php">
-                    <div class="nav_redirect">Explorar</div>
-                    <i class="fa-regular fa-compass"></i>
-                </a>
-                
-                <a href="#openModal">
-                    <div class="nav_redirect">Publicar</div>
-                    <i class="fa-regular fa-square-plus"></i>
-                </a>
-                
-                <a href="chat.php">
-                    <div class="nav_redirect">Mensajes</div>
-                    <i class="fa-regular fa-comments"></i>
-                </a>
-                
-                <a href="perfil.php">
-                    <i class="fa-regular fa-circle-user user_boton"></i>
-                </a>
-                
-            </nav>
-            <!-- <div class="search">
-                <input type="text" name="" id="" placeholder="BUSCAR {<i class="fa-solid fa-magnifying-glass"></i>}">
-            </div> -->
-        </div>
-    </header>
+<?php
+
+    require "./header.php";
+
+    require 'includes/funciones.php';
+
+?>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
     <body> 
         <section class="h-screen flex overflow-hidden"><!--Contenedor de todo el chat--> 
@@ -233,6 +193,4 @@
             </div>
         </section>
 
-    </body> 
-
-</html>
+<?php include "./footer.php"; ?>

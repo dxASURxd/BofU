@@ -102,7 +102,7 @@
 
             /** SUBIDA DE ARCHIVOS */
             // Crear carpeta para imagenes
-            $carpetaImagenes = './src/img';
+            $carpetaImagenes = './src/img/usuarios/';
 
             if(!is_dir($carpetaImagenes)) {
                 mkdir($carpetaImagenes);
