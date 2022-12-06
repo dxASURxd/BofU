@@ -3,7 +3,7 @@
     require './includes/config/db.php';
     $db = conectarDB();
 
-    //validador en caso de errores
+    //validador en caso de errores aja
     $errores = [];
     
     $nombres = ' ';
