@@ -1,9 +1,8 @@
 <?php
 
-    $resultadolog = $_GET['resultadolog'] ?? null;
-
     require 'includes/config/db.php';
     $db = conectarDB();
+
 
     $errores = [];
 
@@ -39,8 +38,8 @@
                     //El usuario esta autenticado
                     session_start();
 
-                    //Llenar arreglo de sesión
-                    $_SESSION['usuario'] = $usuario['nombres'];                    
+                    //Llenar arreglo de sesión        
+                    $_SESSION['login'] = true;           
 
                     header('Location: /index.php');
 

@@ -227,12 +227,9 @@
                 </div>
                 
                 <div class="user-box user_foto">
-                    <label for="imagen">Imagen</label>
                     <input name="imagen" type="file" id="imagen" accept="image/jpeg, image/png">
                 </div>
-
-                <input type="submit" value="Registrar" class="tarjeta__botones">
-
+                <input type="submit" value="Registrar" class="boton">
             </form>
         </div>
     </div>

@@ -928,16 +928,19 @@ input:not(:placeholder-shown) ~ .icon .fa-magnifying-glass {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+.grid_form input {
+  grid-column: 1/3;
+}
 
 .user_name {
-  grid-column: 1/3;
+  grid-column: 1/5;
 }
 
 .user_ap {
   grid-column: 1/2;
 }
 
-.user_apm {
+.user_am {
   grid-column: 2/3;
 }
 
@@ -945,20 +948,52 @@ input:not(:placeholder-shown) ~ .icon .fa-magnifying-glass {
   grid-column: 1/2;
 }
 
-.user_sex {
+.user_blood {
   grid-column: 2/3;
 }
 
-.user_email {
-  grid-column: 1/3;
+.user_peso {
+  grid-column: 1/2;
 }
 
-.user_passw {
+.user_sexo {
+  grid-column: 2/3;
+}
+
+.user_pais {
+  grid-column: 1/2;
+}
+
+.user_municipio {
+  grid-column: 2/3;
+}
+
+.user_estado {
+  grid-column: 1/2;
+}
+
+.user_cp {
+  grid-column: 2/3;
+}
+
+.user_correo {
+  grid-column: 1/2;
+}
+
+.user_telefono {
+  grid-column: 2/3;
+}
+
+.user_pass {
   grid-column: 1/2;
 }
 
 .user_password {
   grid-column: 2/3;
+}
+
+.user_foto {
+  grid-column: 1/3;
 }
 
 .boton_sesion {
