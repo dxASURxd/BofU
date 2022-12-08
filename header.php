@@ -2,7 +2,12 @@
     // BD
     require './includes/config/db.php';
     $db = conectarDB();
+    
+   //consultar BD
+   $query = "SELECT * FROM publicaciones LIMIT 1";
+   $resultadoConsulta = mysqli_query($db, $query);
 
+ 
     //validador en caso de errores
     $errores = [];
     
@@ -195,18 +200,20 @@
 
     <center>
         <div id="openModalSeeMore" class="modalDialog center_form">
-            <div class="form-body border">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="user-login">
-                <div class="login-form">
-                    <h2>Nombre: <span>EXAMPLE</span></h2>
-                    <p>Tipo de sangre: <span>EXAMPLE</span></p>
-                    <p>Numero de donantes:  <span> 0 </span></p>
-                    <p>Descripción: <span> TXT TXT TXT</span></p>
-                    <p>Ubicación a donde puedes donar: <span>Ubicación</span></p>
-                    <div class="tarjeta__botones">
-                        <a href="#openModalContribuir">Contribuir</a>
+            <?php while($publicacion = mysqli_fetch_assoc($resultadoConsulta)): ?>
+                <div class="form-body border">
+                    <img src=" ./src/img/post/<?php echo $publicacion['imagen']; ?>">
+                    <div class="login-form">
+                        <h2>Nombre: <span> <?php echo $publicacion['titulo_publicacion']; ?> </span></h2>
+                        <p>Tipo de sangre: <span><i class="fa-solid fa-droplet"></i> <span> <?php echo $publicacion['typablod']; ?></span> </span></p>
+                        <p>Numero de donantes:  <span> 0 / <?php echo $publicacion['num_donantes']; ?> </span></p>
+                        <p>Descripción: <span> <?php echo $publicacion['descripcion']; ?> </span></p>
+                        <p>Ubicación a donde puedes donar: <span> Ubicación </span></p>
+                        <div class="tarjeta__botones">
+                            <a href="#openModalContribuir">Contribuir</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endwhile ?>
         </div>
     </center>
